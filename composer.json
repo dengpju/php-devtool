@@ -1,0 +1,15 @@
+{
+    "name": "ppi/devtool",
+    "autoload": {
+        "psr-4": {
+            "PHPDTool\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Deng Peng Ju",
+            "email": "dengpju@163.com"
+        }
+    ],
+    "require": {}
+}
