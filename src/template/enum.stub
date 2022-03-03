@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+namespace app\enums;
+namespace %NAMESPACE%;
+
+use app\annotations\Message;
+use app\enums\impl\EnumImpl;
+%USES%
+
+/**
+ * 应用范围
+ * Class EnumApplyScope
+ * @package app\enums
+ *
+ * @method static EnumImpl SELF_CLASS
+ * @method static EnumImpl SELF_GRADE
+ * @method static EnumImpl SELF_GARDEN
+ */
+ %DOCCOMMENT%
+class EnumApplyScope %CLASS% extends EnumBase %INHERITANCE%
+{
+    /**
+     * @Message("本班级")
+     */
+    protected const SELF_CLASS = 1;
+    /**
+     * @Message("本年级")
+     */
+    protected const SELF_GRADE = 2;
+    /**
+     * @Message("本园所")
+     */
+    protected const SELF_GARDEN = 3;
+}
