@@ -11,5 +11,7 @@
             "email": "dengpju@163.com"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }

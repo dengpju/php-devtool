@@ -7,25 +7,21 @@ use PDOException;
 
 class Db
 {
-    protected $drive = 'mysql';
-    protected $host = '192.168.8.99';
-    protected $port = 3306;
-    protected $database = 'tianli_lida_children';
-    protected $user = 'root';
-    protected $password = '1qaz2wsx';
-    protected $dsn = "";
-    protected $charset = "utf8mb4";
+    /**
+     * @var DbConfig
+     */
+    protected $dbConfig;
 
-    public function __construct()
+    public function __construct(DbConfig $dbConfig)
     {
-        $this->dsn = "$this->drive:host=$this->host;port=$this->port;dbname=$this->database;charset=$this->charset";
+        $this->dbConfig = $dbConfig;
     }
 
     public function connect()
     {
         try {
-            $db = new PDO($this->dsn, $this->user, $this->password, [PDO::ATTR_PERSISTENT => true]);
-            $statement = "SELECT TABLE_NAME as Name,TABLE_COMMENT as Comment FROM information_schema.TABLES WHERE table_schema='{$this->database}'";
+            $db = new PDO($this->dbConfig->dsn(), $this->dbConfig->user, $this->dbConfig->password, [PDO::ATTR_PERSISTENT => true]);
+            $statement = "SELECT TABLE_NAME as Name,TABLE_COMMENT as Comment FROM information_schema.TABLES WHERE table_schema='{$this->dbConfig->database}'";
             echo $statement . PHP_EOL;
             foreach ($db->query($statement) as $row) {
                 print_r($row);

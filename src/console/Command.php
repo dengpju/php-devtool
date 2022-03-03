@@ -5,6 +5,7 @@ namespace PHPDTool\console;
 
 
 use PHPDTool\connection\Db;
+use PHPDTool\connection\DbConfig;
 use PHPDTool\exception\RuntimeException;
 
 class Command
@@ -12,6 +13,10 @@ class Command
     private $tokens;
     private $parsed;
 
+    /**
+     * Command constructor.
+     * @param array|null $argv
+     */
     public function __construct(array $argv = null)
     {
         $argv = $argv ?? $_SERVER['argv'] ?? [];
@@ -24,10 +29,11 @@ class Command
         $this->tokens = $argv;
     }
 
-    public function exec()
+    public function run()
     {
-        $DBDrive = new Db();
-        $DBDrive->connect();
+        var_export($this->tokens);
+//        $DBDrive = new Db((new DbConfig()));
+//        $DBDrive->connect();
     }
 
     /**

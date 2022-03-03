@@ -16,6 +16,6 @@ date_default_timezone_set('Asia/Shanghai');
 require BASE_PATH . '/vendor/autoload.php';
 
 (function () {
-    (new Command())->exec();
+    (new Command())->run();
 })();
 
